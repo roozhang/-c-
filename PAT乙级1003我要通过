@@ -1,0 +1,64 @@
+//自己写的：
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    int num;
+    cin>>num;
+    for(;num>0;num--)
+    {
+        string str;
+        cin>>str;
+        int len=str.size();
+        int P_pos=len,P_times=0;
+        int T_pos=len,T_times=0;
+        //四个变量分别表示P、T出现的首位置和出现次数，并用i小于现有的pos来取得首位置。
+        int A_times=0;//A出现的次数
+        for(int i = 0;i<len;i++)
+        {
+
+                if(str[i]=='A')
+                    A_times++;
+                else if(str[i]=='P')
+                {
+                    P_times++;
+                    if(i<P_pos)
+                    P_pos = i;
+                }
+                else if(str[i]=='T')
+                {
+                    T_times++;
+                    if(i<T_pos)
+                    T_pos = i;
+                }
+
+        }//for循环用以取得五个参数，以便进一步判断。
+        if(T_times!=1||P_times!=1||len!=(A_times+P_times+T_times))
+            {
+                cout<<"NO!"<<endl;
+                break;
+            }
+        else
+        {
+            int a = P_pos;
+            int b = len-T_pos-1;
+            if(a<b)
+            {
+                cout<<"NO!"<<endl;
+                break;
+            }
+            else
+                {
+                cout<<"YES!"<<endl;
+                break;
+            }
+
+        }
+    }
+    return 0;
+}
+
+
+//可能因为没有使用getline而失败了，明天再写。
