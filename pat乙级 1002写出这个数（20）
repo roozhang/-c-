@@ -20,3 +20,41 @@ CHEN, Yue
 输出样例：
 yi san wu
 
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string numb[] ={"ling","yi","er","san","si","wu","liu","qi","ba","jiu"};
+    string n;
+    cin>>n;
+    int sum=0;
+    for(int i = 0;i<n.length();i++)
+        sum+=n[i]-'0';
+
+    /*
+    要倒着输出各位上的数的读音，通行的办法难道是先求位数再输出各位的读音？
+    居然还能将各位的值转化为数组的值。。。
+    如果用.push加进去，就用.top取出来，再pop掉最后一位就好；如果用下标加入的，就用下标再取出来。
+    */
+    //这里用.push
+    //原来string是没有top的啊。。只有stack有。。。无语
+    string sum1;
+    for(;;)
+    {
+        sum1.push_back(sum%10);
+        sum/=10;
+        if(sum==0) break;
+    }
+    int len = sum1.size();
+
+    for(int i = 0;i<len-1;i++)
+    {
+        cout<<numb[sum1[sum1.size()-1]]<<" ";
+        sum1.pop_back();
+    }
+    cout<<numb[sum1[0]];
+    return 0;
+}
+//出了问题，不知道怎么搞的。还是看primer吧。。。
