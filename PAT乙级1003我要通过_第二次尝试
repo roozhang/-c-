@@ -1,0 +1,75 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool judge(string a);
+
+int main()
+{
+    int n;
+    cin>>n;
+    string m;
+    getline(cin,m);//为什么要有这么个玩意？？？我看他们有取个char的，这个也可以。
+    for(int i = 1;i<=n;i++)
+    {
+        string str;
+        getline(cin,str);
+        judge(str)?(cout<<"YES"<<endl):(cout<<"NO"<<endl);
+    }
+    return 0;
+}
+
+bool judge(string a)
+{
+    int len = a.size();
+    int nA=0,nP=0,nT=0,posP,posT;
+    for(int i =0;i<len;i++)
+        {
+
+        if(a[i]=='A')
+            nA++;
+        else if(a[i]=='P')
+            {
+                nP++;
+                posP=i;
+            }
+        else if(a[i]=='T')
+            {
+                nT++;
+                posT=i;
+            }
+        else
+            return false;
+        }
+        if(nP!=1||nT!=1||nA+nP+nT!=len)
+            return false;
+        else
+        {
+            if(posP*(posT-posP)==len-posT-1)
+                return true;
+            else
+                return false;
+        }
+}
+
+//部分正确，，额，再看看哪儿错了。
+8
+PAT
+YES
+PAAT
+YES
+AAPATAA
+NO
+AAPAATAAAA
+NO
+xPATx
+NO
+PT
+YES
+Whatever
+NO
+APAAATAA
+NO
+
+Process returned 0 (0x0)   execution time : 25.610 s
+Press any key to continue.
