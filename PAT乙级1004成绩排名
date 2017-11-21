@@ -39,3 +39,40 @@ int main()
 }
 
 //只能拿到两分？？？
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    struct student
+    {
+        string name;
+        string number;
+        int score;
+    };
+    int n;
+    cin>>n;
+    student *stu = new student[n];
+    for(int i = 0;i!=n;i++)
+    {
+        cin>>stu[i].name;
+        cin>>stu[i].number;
+        cin>>stu[i].score;
+    }
+    int fscore = stu[0].score;
+    int lscore = stu[0].score;
+    int fstu = 0;
+    int lstu = 0;
+    for (int i = 0;i!=n;i++)
+    {
+        if(stu[i].score>fscore)
+            fstu=i;
+        if(stu[i].score<lscore)
+            lstu=i;
+    }
+    cout<<stu[fstu].name<<" "<<stu[fstu].number<<endl;
+    cout<<stu[lstu].name<<" "<<stu[lstu].number;
+    delete [] stu;//为什么delete？？？？？
+    return 0;
+}
+//看了liuchuo的答案，，学会了自定义类，但是还是两分。。。不知怎么搞的。
