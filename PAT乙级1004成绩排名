@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    string fname,fnum;int fgrade;
+    string lname,lnum;int lgrade;
+    cin>>fname>>fnum>>fgrade;
+    lname=fname;
+    lnum=fnum;
+    lgrade=fgrade;
+    if(n==1)
+    {
+        cout<<fname<<" "<<fnum<<endl<<fname<<" "<<fnum;
+    }
+    else
+    {
+        for(int i = 0;i!=n-1;i++)
+        {
+            string name,num;int grade;
+            cin>>name>>num>>grade;
+            if(grade>fgrade)
+            {
+                fname=name;fnum=num;
+            }
+            if(grade<lgrade)
+            {
+                lname=name;lnum=num;
+            }
+        }
+        cout<<fname<<" "<<fnum<<endl<<lname<<" "<<lnum;
+
+    }
+
+    return 0;
+}
+
+//只能拿到两分？？？
