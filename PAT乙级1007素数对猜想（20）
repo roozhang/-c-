@@ -3,7 +3,7 @@ using namespace std;
 bool isprime(int a)
 {
     if (a<2) return false;
-    for(int i = 2;i!=a;i++)
+    for(int i = 2;i*i<=a;i++)
     {
         if(a%i==0)return false;
     }
@@ -14,7 +14,7 @@ int main()
 {
     int n;cin>>n;
     int sum = 0;
-    for(int i = 3;i!=n-2;i++)
+    for(int i = 3;i!=n-2;i++)//应改为for(int i = 3;i<=n-2;i++)   否则3>n-2的时候，会循环到655……，最大int去。
     {
         if(isprime(i)&&isprime(i+2))
             sum++;
@@ -22,3 +22,5 @@ int main()
     cout<<sum;
     return 0;
 }
+//超时加错误。。部分正确。。
+//改完17行还是有一个错误。。在哪儿呢？？？？
