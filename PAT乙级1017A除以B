@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string str;
+    int a;
+    cin>>str>>a;
+    int len = str.length();
+    int t = (str[0]-'0')/a;
+    if(len==1||(t!=0&&len>1)){
+        cout<<t;
+    }
+    int mid = (str[0]-'0')%a;
+    for(int i = 1;i<len;i++){
+        t=(10*mid+str[i]-'0')/a;
+        cout<<t;
+        mid=(10*mid+str[i]-'0')%a;
+    }
+    cout<<" "<<mid;
+    return 0;
+}
+
+纯粹是学习。。。看的别人的代码。
