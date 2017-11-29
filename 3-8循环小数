@@ -1,0 +1,36 @@
+5 43
+5/43的小数表示为：0.(116279069767441860465)，循环节长度为 21。
+
+Process returned 0 (0x0)   execution time : 4.485 s
+Press any key to continue.
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+    int a,b;
+    cin>>a>>b;
+    int zheng=a/b;
+    int yu=a%b;
+    int mark=yu;
+    vector<int> xiaoshu;
+    for(;;){
+        yu*=10;
+        int k =yu/b;
+        xiaoshu.push_back(k);
+        yu=yu%b;
+        if(yu==mark){
+            break;
+        }
+    }
+    int len=xiaoshu.size();
+    cout<<a<<"/"<<b<<"的小数表示为："<<zheng<<".(";
+    for(int i = 0;i<len;i++){
+        cout<<xiaoshu[i];
+    }
+    cout<<")，循环节长度为 "<<len<<"。"<<endl;
+
+    return 0;
+}
