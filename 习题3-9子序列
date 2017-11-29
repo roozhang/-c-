@@ -1,0 +1,42 @@
+dc abcde
+no!
+
+Process returned 0 (0x0)   execution time : 13.064 s
+Press any key to continue.
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+bool zxl(string zi,string mu){
+    if(zi.length()>mu.length()){
+        return false;
+    }
+    else{
+        unsigned mark = 0;
+        for(unsigned i = 0;i<mu.length();i++){
+            if(mu[i]==zi[mark]){
+                mark++;
+            }
+        }
+        if(mark==zi.length()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
+
+int main()
+{
+    string s,t;
+    cin>>s>>t;
+    if(zxl(s,t)){
+        cout<<"yes!"<<endl;
+    }
+    else{
+        cout<<"no!"<<endl;
+    }
+    return 0;
+}
